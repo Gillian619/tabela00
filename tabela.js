@@ -15,10 +15,9 @@ function quebra() {
 }
 console.log(quebra())
 function separa() {
-    let forma = quebra().split(';')
+    let forma = quebra()
     return forma
 }
-console.log(separa())
 function format() {
 
 }

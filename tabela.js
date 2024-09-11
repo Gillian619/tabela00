@@ -60,3 +60,7 @@ function rowToJSON(header, content) {
 console.log(rowToJSON(["nome", "idade"], ["João", "28"]))
 console.log(rowToJSON(["produto", "preço"], ["Arroz", "5.00"]))
 console.log(rowToJSON(["Filme", "Diretor", "Ano", "Duração", "Gênero", "País de Origem", "Receita Bruta"], ["Parasita", "Bong Joon-ho", "2019", "132", "Drama", "Coréia do Sul", "258.8M"]))
+
+function contentToJsonData() {
+
+}

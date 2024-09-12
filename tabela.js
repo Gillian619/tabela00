@@ -94,9 +94,9 @@ function contentToJsonData(header, content) {
  * @param {String} csvText  Uma string contendo o conteúdo de um arquivo CSV.
  * @returns  Nenhuma. A função deve imprimir no console o objeto JSON convertido a partir do CSV, utilizando console.table().
  */
-function printCSV(csvText) {
+function printCSV(csvText, separador) {
     const csvL = csvToLines(csvText);
-    const lToC = linesToColumns(csvL, ',');
+    const lToC = linesToColumns(csvL, separador);
     const exH = extractHeader(lToC);
     const exC = extractContent(lToC);
     const contToJSON = contentToJsonData(exH, exC)

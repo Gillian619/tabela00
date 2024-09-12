@@ -10,13 +10,22 @@ function extract() {
 }
 
 
-
+/**
+ * 
+ * @param {string} str Uma string contendo o conteúdo de um CSV.
+ * @returns Uma lista de strings, onde cada string representa uma linha do CSV
+ */
 function csvToLines(str) {
     let line = str.trim().split('\r\n')
     return line
 }
 
-
+/**
+ * 
+ * @param {Array} arr - Uma lista de strings, onde cada string representa uma linha do CSV.
+ * @param {String} separator uma string idenficando o separador usado no arquivo CSV
+ * @returns  Uma lista de listas, onde cada lista interna contém as colunas de uma linha do CSV
+ */
 function linesToColumns(arr, separator = ',') {
     let lines = arr;
     let columns = [];
@@ -26,17 +35,34 @@ function linesToColumns(arr, separator = ',') {
     }
     return columns;
 }
-
+/**
+ * 
+ * @param {Array} arr Uma lista de listas de strings, onde cada lista interna representa colunas de uma linha
+do CSV.
+ * @returns  Uma lista contendo apenas o cabeçalho (primeira linha).
+ */
 function extractHeader(arr) {
     let header = arr.shift()
     return header
 }
+/**
+ * 
+ * @param {Array} arr Uma lista de listas de strings, onde cada lista interna representa colunas de uma linha
+do CSV.
 
+ * @returns  Uma lista de listas, contendo todas as linhas exceto o cabeçalho.
+ */
 function extractContent(arr) {
     arr.slice(1)
     return arr
 }
-
+/**
+ * 
+ * @param {Array} header lista representa o cabeçalho da tabela.
+ * @param {Array} row lista representa uma única linha do conteúdo da tabela
+ * @returns - Um objeto JSON onde as chaves são os elementos do cabeçalho e os valores são
+os elementos correspondentes da linha do conteúdo.
+ */
 function rowToJSON(header, row) {
     const obj = {};
     for (let i = 0; i < header.length; i++) {
@@ -46,7 +72,12 @@ function rowToJSON(header, row) {
     }
     return obj
 }
-
+/**
+ * 
+ * @param {Array} header - lista de strings representando o cabeçalho;
+ * @param {Array} content - lista de listas representando o conteúdo do CSV.
+ * @returns  Uma lista de objetos JSON, onde as chaves são os elementos do cabeçalho e os valores são as colunas correspondentes.
+ */
 
 function contentToJsonData(header, content) {
     const list = [];
@@ -58,7 +89,11 @@ function contentToJsonData(header, content) {
     return list
 }
 
-
+/**
+ * 
+ * @param {String} csvText  Uma string contendo o conteúdo de um arquivo CSV.
+ * @returns  Nenhuma. A função deve imprimir no console o objeto JSON convertido a partir do CSV, utilizando console.table().
+ */
 function printCSV(csvText) {
     const csvL = csvToLines(csvText);
     const lToC = linesToColumns(csvL, ';');

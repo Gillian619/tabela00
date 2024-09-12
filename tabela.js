@@ -1,9 +1,9 @@
-/*function extract(arc) {
+function extractPokemon() {
     const fs = require('fs')
-    const csvOscar = fs.readFileSync(arc, 'utf-8')
+    const csvOscar = fs.readFileSync('./pokemon_combined.csv', 'utf-8')
     return csvOscar
-}*/
-function extract() {
+}
+function extractOscar() {
     const fs = require('fs')
     const csvOscar = fs.readFileSync('./oscar_best_pictures.csv', 'utf-8')
     return csvOscar
@@ -96,10 +96,10 @@ function contentToJsonData(header, content) {
  */
 function printCSV(csvText) {
     const csvL = csvToLines(csvText);
-    const lToC = linesToColumns(csvL, ';');
+    const lToC = linesToColumns(csvL, ',');
     const exH = extractHeader(lToC);
     const exC = extractContent(lToC);
     const contToJSON = contentToJsonData(exH, exC)
     return contToJSON
 }
-module.exports = { extract, csvToLines, linesToColumns, extractHeader, extractContent, rowToJSON, contentToJsonData, printCSV }
+module.exports = { extractOscar, extractPokemon, csvToLines, linesToColumns, extractHeader, extractContent, rowToJSON, contentToJsonData, printCSV }

@@ -1,8 +1,4 @@
-const { extract, csvToLines, linesToColumns, extractHeader, extractContent, contentToJsonData, printCSV } = require("./tabela");
-
-//teste extração de arquivo
-console.log("teste extract")
-console.log(extract())
+const { extractOscar, extractPokemon, csvToLines, linesToColumns, extractHeader, rowToJSON, extractContent, contentToJsonData, printCSV } = require("./tabela");
 
 //
 console.log("teste 1")
@@ -37,4 +33,5 @@ console.log(contentToJsonData(["produto", "preço"], [["Arroz", "5.00"], ["Feij�
 console.log(contentToJsonData(["Filme", "Diretor", "Ano", "Duração", "Gênero", "País de Origem", "Receita Bruta"], [["Parasita", "Bong Joon-ho", "2019", "132", "Drama", "Coréia do Sul", "258.8M"], ["Green Book", "Peter Farrelly", "2018", "130", "Drama", "EUA", "321.8M"]]))
 
 console.log("teste 7")
-console.table(printCSV(extract()))
+console.table(printCSV(extractOscar()))
+console.table(printCSV(extractPokemon()))
